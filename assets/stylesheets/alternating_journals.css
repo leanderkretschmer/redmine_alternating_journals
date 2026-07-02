@@ -1,9 +1,5 @@
 /* redmine_alternating_journals */
 
-#history .journal:nth-child(odd) {
-  background-color: #f7f9fc;
-}
-
-#history .journal:nth-child(even) {
-  background-color: #ffe6a1;
+body #history .journal:nth-child(even) {
+  background-color: rgba(173, 216, 230, 0.25) !important;
 }
