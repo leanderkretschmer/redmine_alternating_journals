@@ -1,5 +1,11 @@
 /* redmine_alternating_journals */
 
-body #history .journal:nth-child(even) {
+body #history .journal.journal-alt {
   background-color: rgba(173, 216, 230, 0.25) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
