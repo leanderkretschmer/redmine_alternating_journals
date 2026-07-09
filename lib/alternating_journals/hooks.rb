@@ -37,9 +37,8 @@ module AlternatingJournals
       default = '#add8e6'
       return default unless user&.logged?
 
-      others = user.pref.others
-      color  = others.is_a?(Hash) ? others['alternating_journal_color'] : nil
-      color&.match?(/\A#[0-9a-fA-F]{6}\z/) ? color : default
+      color = user.pref['alternating_journal_color'].to_s.strip
+      color.match?(/\A#[0-9a-fA-F]{6}\z/) ? color : default
     end
   end
 end
