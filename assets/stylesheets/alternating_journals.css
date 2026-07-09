@@ -8,3 +8,10 @@ body #history .journal.journal-alt {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
 }
+
+/* prevent sendmail's journal-level background from appearing on non-alternating journals */
+body #history .journal.redmine-sendmail-sent:not(.journal-alt) {
+  background-color: transparent !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
