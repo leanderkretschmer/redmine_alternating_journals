@@ -9,8 +9,8 @@ body #history .journal.journal-alt {
   padding-bottom: 8px !important;
 }
 
-/* prevent sendmail's journal-level background from appearing on non-alternating journals */
-body #history .journal.redmine-sendmail-sent:not(.journal-alt) {
+/* suppress sendmail's journal-level border/background — the badge itself keeps its own styling */
+body #history [class*="journal"].redmine-sendmail-sent {
   background-color: transparent !important;
   border-left: none !important;
   padding-left: 0 !important;
