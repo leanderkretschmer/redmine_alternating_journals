@@ -14,7 +14,7 @@ module AlternatingJournals
       if is_issue_show
         color = journal_color_for(User.current)
         r, g, b = color[1..2].to_i(16), color[3..4].to_i(16), color[5..6].to_i(16)
-        html += "<style>body #history .journal.journal-alt{background-color:rgba(#{r},#{g},#{b},0.30)!important}</style>".html_safe
+        html += "<style>body #history .journal-content.journal-alt{background-color:rgba(#{r},#{g},#{b},0.30)!important}</style>".html_safe
       end
 
       html

@@ -1,6 +1,6 @@
 /* redmine_alternating_journals — color is applied as inline <style> per user */
 
-body #history .journal.journal-alt {
+body #history .journal-content.journal-alt {
   margin-left: 0 !important;
   margin-right: 0 !important;
   margin-top: 0 !important;
@@ -9,7 +9,7 @@ body #history .journal.journal-alt {
   padding-bottom: 8px !important;
 }
 
-/* suppress sendmail's journal-level border/background — the badge itself keeps its own styling */
+/* suppress sendmail's journal-level border/background */
 body #history [class*="journal"].redmine-sendmail-sent {
   background-color: transparent !important;
   border-left: none !important;
