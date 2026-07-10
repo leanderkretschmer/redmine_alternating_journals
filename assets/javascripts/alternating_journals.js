@@ -1,20 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // extend the alt background to a sendmail badge sitting as a sibling after a journal
-  // (the badge is rendered outside the journal div via hook, so it needs explicit coloring)
-  document.querySelectorAll('#history .journal').forEach(function (el) {
-    var content = el.querySelector('.journal-content.journal-alt');
-    if (!content) return;
+  // select only the outer journal divs (class="journal has-notes" or "journal")
+  // filter to those with actual note content — skips property-change-only journals
+  var journals = Array.from(
+    document.querySelectorAll('#history .journal')
+  ).filter(function (el) {
+    return el.querySelector('.journal-note') !== null;
+  });
 
-    var next = el.nextElementSibling;
-    if (next && next.hasAttribute('data-sendmail-marker')) {
-      var bg = window.getComputedStyle(content).backgroundColor;
-      next.style.backgroundColor = bg;
-      next.style.margin = '0';
-      next.style.paddingTop = '4px';
-      next.style.paddingBottom = '8px';
-      next.style.paddingLeft = '8px';
-      next.style.paddingRight = '8px';
-      next.style.borderRadius = '0';
+  journals.forEach(function (el, i) {
+    if (i % 2 === 1) {
+      el.classList.add('journal-alt');
+
+      // extend the alt background to a sendmail badge sitting as a sibling after this journal
+      var next = el.nextElementSibling;
+      if (next && next.hasAttribute('data-sendmail-marker')) {
+        var bg = window.getComputedStyle(el).backgroundColor;
+        next.style.backgroundColor = bg;
+        next.style.margin = '0';
+        next.style.paddingTop = '4px';
+        next.style.paddingBottom = '8px';
+        next.style.paddingLeft = '8px';
+        next.style.paddingRight = '8px';
+        next.style.borderRadius = '0';
+      }
     }
   });
 
