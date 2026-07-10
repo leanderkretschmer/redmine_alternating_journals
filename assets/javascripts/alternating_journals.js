@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // select only the outer journal divs (class="journal has-notes" or "journal")
-  // filter to those with actual note content — skips property-change-only journals
+  // .has-notes is set by Redmine on journals with actual note content across all versions
+  // property-change-only journals have class="journal" without has-notes
   var journals = Array.from(
-    document.querySelectorAll('#history .journal')
-  ).filter(function (el) {
-    return el.querySelector('.journal-note') !== null;
-  });
+    document.querySelectorAll('#history .journal.has-notes')
+  );
 
   journals.forEach(function (el, i) {
     if (i % 2 === 1) {
